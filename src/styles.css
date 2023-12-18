@@ -1,0 +1,103 @@
+
+.swiper {
+  --swiperHeight: 30px;
+  --swiperTransitionDuration: 250ms;
+  --swiperTranslate: 0px;
+  --swiperLeftColor: rgba(252, 58, 48, 1);
+  --swiperRightColor: rgb(46, 133, 61); /* Color for archive action */
+  --swiperSwipeWidth: 75px;
+  --swiperButtonMarginRight: 15px;
+  --swiperButtonMarginLeft: 15px;
+  width: auto;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: var(--swiperHeight);
+  max-height: calc(var(--swiperHeight) + 10px);
+}
+
+.swiper *,
+.swiper *:before,
+.swiper *:after {
+  box-sizing: border-box;
+}
+
+.swiper.leftSwiping,
+.swiper.rightSwiping {
+  transition: all var(--swiperTransitionDuration) ease-out;
+  max-height: 0;
+}
+
+.swiper .content {
+  height: 100%;
+  width: auto;
+  position: relative;
+  transform: translateX(var(--swiperTranslate));
+}
+
+.swiper .content.transition {
+  transition: transform var(--swiperTransitionDuration) ease-out;
+}
+
+.swiper .content.leftSwiping {
+  height: 100%;
+  width: auto;
+  position: relative;
+  transform: scale(0) translateX(var(--swiperTranslate));
+}
+
+.swiper .content.rightSwiping {
+  height: 100%;
+  width: auto;
+  position: relative;
+  transform: scale(0) translateX(var(--swiperTranslate));
+}
+
+.swiper .leftSwipe {
+  left: 0;
+  background: var(--swiperLeftColor);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  font-weight: 400;
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  visibility: var(--visibilityLeft);
+}
+
+.swiper .rightSwipe {
+  right:0;
+  background: var(--swiperRightColor);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  font-weight: 400;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  visibility: var(--visibilityRight);
+}
+
+.swiper .leftSwipe button,
+.swiper .rightSwipe button {
+  width: var(--swiperDeleteWidth);
+  transition: margin transform var(--swiperTransitionDuration) ease-in-out;
+  margin-right: var(--swiperButtonMarginRight);
+  text-align: center;
+  height: 100%;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.swiper .rightSwipe button {
+  margin-right: 0;
+  margin-left: var(--swiperButtonMarginLeft);
+}
+
+ 
