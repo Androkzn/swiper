@@ -191,16 +191,13 @@ const Swipe = ({
       // Calculate the distance moved from the starting position
       const moveDistance = currentPosition - startTouchPosition.current;
 
-      // Determine the swipe direction based on the move distance
-      setSwipeDirection(moveDistance >= 0 ? 'right' : 'left');
-
       // Initialize a variable to store the new translate value
       let newTranslate = moveDistance;
 
       // Check if right swipe is disabled
       if (disableRightSwipe) {
         // Restrict the newTranslate value to be at most 0 (no right swipe allowed)
-        newTranslate = Math.min(0, translate + moveDistance);
+        //newTranslate = Math.min(0, translate + moveDistance);
 
         // Return early if attempting a right swipe when disabled
         if (translate >= 0 && moveDistance >= 0) {
@@ -208,7 +205,7 @@ const Swipe = ({
         }
       } else if (disableLeftSwipe) {
         // Restrict the newTranslate value to be at least 0 (no left swipe allowed)
-        newTranslate = Math.max(0, translate + moveDistance);
+        //newTranslate = Math.max(0, translate + moveDistance);
 
         // Return early if attempting a left swipe when disabled
         if (translate <= 0 && moveDistance <= 0) {
@@ -216,8 +213,24 @@ const Swipe = ({
         }
       }
 
-      // Update the translate state with the new calculated value
-      setTranslate(newTranslate);
+      // If swipe fixed in the swipeWidth position use it as initial starting point
+      if ((newTranslate > 0 && swipeDirection === "right") || (newTranslate < 0 && swipeDirection === "left")){
+        setTranslate(translate + newTranslate);
+        setSwipeDirection(moveDistance >= 0 ? 'right' : 'left');
+      } else {
+        // Performs animated transition to initial state if swipe is fixed in the swipeWidth position
+        if ((swipeDirection === 'right' ? 1 : -1) * translate === swipeWidth) {
+          setTouching(() => false);
+          setTranslate(() => 0);
+          // Wait until animation is done
+          window.setTimeout(() => {
+            setSwipeDirection(moveDistance >= 0 ? 'right' : 'left');
+          }, transitionDuration);
+        } else {
+          setTranslate(newTranslate);
+          setSwipeDirection(moveDistance >= 0 ? 'right' : 'left');
+        }
+      }
     },
     [touching]
   );
@@ -269,7 +282,7 @@ const Swipe = ({
     setRightSwiping(() => false);
     startTouchPosition.current = 0;
     initTranslate.current = 0;
-  }, [onLeftSwipe, onRightSwipe, transitionDuration]);
+  }, []);
 
   // Callback function triggered when left swipe is clicked
   const onLeftSwipeClick = useCallback(() => {
@@ -383,6 +396,7 @@ const Swipe = ({
       if (swipeWithoutConfirm) {
         setTranslate(() => translate);
       } else if (notShowSwipe) {
+        setTouching(() => false);
         setTranslate(() => 0);
       } else if (
         (showSwipeLeft && !swipeWithoutConfirm) ||
