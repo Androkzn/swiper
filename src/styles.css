@@ -1,33 +1,36 @@
-
+/* Styling for the Swipe component container */
 .swiper {
-  --swiperHeight: 30px;
-  --swiperTransitionDuration: 250ms;
-  --swiperTranslate: 0px;
-  --swiperLeftColor: rgba(252, 58, 48, 1);
-  --swiperRightColor: rgb(46, 133, 61); /* Color for archive action */
-  --swiperSwipeWidth: 75px;
-  --swiperButtonMarginRight: 15px;
-  --swiperButtonMarginLeft: 15px;
+  --swiperHeight: 30px; /* Default height of the swipe container */
+  --swiperTransitionDuration: 250ms; /* Default transition duration for swipe animations */
+  --swiperTranslate: 0px; /* Default translation for the swipe content */
+  --swiperLeftColor: rgba(252, 58, 48, 1); /* Default color for left swipe background */
+  --swiperRightColor: rgb(46, 133, 61); /* Default color for right swipe background (archive action) */
+  --swiperSwipeWidth: 75px; /* Default visible width of the swipe component under the child */
+  --swiperButtonMarginRight: 15px; /* Default margin for the right swipe button */
+  --swiperButtonMarginLeft: 15px; /* Default margin for the left swipe button */
   width: auto;
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
   height: var(--swiperHeight);
-  max-height: calc(var(--swiperHeight) + 10px);
+  max-height: calc(var(--swiperHeight) + 10px); /* Maximum height of the swipe container */
 }
 
+/* Apply box-sizing to all elements within the Swipe container */
 .swiper *,
 .swiper *:before,
 .swiper *:after {
   box-sizing: border-box;
 }
 
+/* Styles for swiping animations when swiping left or right */
 .swiper.leftSwiping,
 .swiper.rightSwiping {
   transition: all var(--swiperTransitionDuration) ease-out;
-  max-height: 0;
+  max-height: 0; /* Hide content during swipe animation */
 }
 
+/* Styles for the swipe content */
 .swiper .content {
   height: 100%;
   width: auto;
@@ -35,24 +38,28 @@
   transform: translateX(var(--swiperTranslate));
 }
 
+/* Styles for transition animations of the swipe content */
 .swiper .content.transition {
   transition: transform var(--swiperTransitionDuration) ease-out;
 }
 
+/* Styles for the left swiping animation of the swipe content */
 .swiper .content.leftSwiping {
   height: 100%;
   width: auto;
   position: relative;
-  transform: scale(0) translateX(var(--swiperTranslate));
+  transform: scale(0) translateX(var(--swiperTranslate)); /* Scale down and translate during left swipe */
 }
 
+/* Styles for the right swiping animation of the swipe content */
 .swiper .content.rightSwiping {
   height: 100%;
   width: auto;
   position: relative;
-  transform: scale(0) translateX(var(--swiperTranslate));
+  transform: scale(0) translateX(var(--swiperTranslate)); /* Scale down and translate during right swipe */
 }
 
+/* Styles for the left swipe button and its container */
 .swiper .leftSwipe {
   left: 0;
   background: var(--swiperLeftColor);
@@ -64,11 +71,12 @@
   display: inline-flex;
   justify-content: flex-end;
   align-items: center;
-  visibility: var(--visibilityLeft);
+  visibility: var(--visibilityLeft); /* Dynamic visibility based on swipe direction */
 }
 
+/* Styles for the right swipe button and its container */
 .swiper .rightSwipe {
-  right:0;
+  right: 0;
   background: var(--swiperRightColor);
   position: absolute;
   height: 100%;
@@ -78,14 +86,15 @@
   display: inline-flex;
   justify-content: flex-start;
   align-items: center;
-  visibility: var(--visibilityRight);
+  visibility: var(--visibilityRight); /* Dynamic visibility based on swipe direction */
 }
 
+/* Styles for the left and right swipe buttons */
 .swiper .leftSwipe button,
 .swiper .rightSwipe button {
-  width: var(--swiperDeleteWidth);
-  transition: margin transform var(--swiperTransitionDuration) ease-in-out;
-  margin-right: var(--swiperButtonMarginRight);
+  width: var(--swiperDeleteWidth); /* Set width for swipe buttons */
+  transition: margin transform var(--swiperTransitionDuration) ease-in-out; /* Apply transition for smooth animations */
+  margin-right: var(--swiperButtonMarginRight); /* Set margin for the right swipe button */
   text-align: center;
   height: 100%;
   background: transparent;
@@ -95,9 +104,8 @@
   cursor: pointer;
 }
 
+/* Additional styles for the right swipe button to control its margin */
 .swiper .rightSwipe button {
   margin-right: 0;
-  margin-left: var(--swiperButtonMarginLeft);
+  margin-left: var(--swiperButtonMarginLeft); /* Set margin for the left swipe button */
 }
-
- 
