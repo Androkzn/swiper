@@ -124,6 +124,7 @@ The component structure might help you customize with your own CSS.
   </div>
 </div>
 ```
+
 ## Future plans
 *Package the component
 *Implement the ability to disable previous swipes when a new one is triggered 
