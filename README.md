@@ -17,7 +17,7 @@ Do not have limitations for the width and height of a swipeable child container.
 
 ## Installation
 
-Manually copy files from /src folder to your project
+Manually copy files from the /src folder to your project directory.
 
 ## Usage Example
 
@@ -124,3 +124,6 @@ The component structure might help you customize with your own CSS.
   </div>
 </div>
 ```
+## Future plans
+*Package the component
+*Implement the ability to disable previous swipes when a new one is triggered 
