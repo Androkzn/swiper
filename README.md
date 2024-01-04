@@ -47,6 +47,7 @@ import '../components/styles/styles.css';
       }
     }}
     distructiveLeftSwipe={true}
+    disableRightSwipe={true}
     onRightSwipe={editFood}
     rightSwipeComponent={
       <Image imageName={`edit.svg`} width="20" height="20" />
@@ -54,6 +55,9 @@ import '../components/styles/styles.css';
     className="swiper-food"
     leftSwipeColor={colors.orange}
     rightSwipeColor={colors.green}
+    onSwipeStateCompleted={(completed ) => {
+      setSwipeCompleted(completed);
+    }}
   >
   {children}
   </Swipe>
