@@ -17,13 +17,7 @@ Do not have limitations for the width and height of a swipeable child container.
 
 ## Installation
 
-```
-npm i --save react-swipe-to-delete-ios
-```
-
-```
-yarn add react-swipe-to-delete-ios
-```
+Manually copy files from /src folder to your project
 
 ## Usage Example
 
