@@ -65,31 +65,31 @@ import '../components/styles/styles.css';
 
 ## Props
 
-| Prop                  | Type        | Default                                    |
-| --------------------- | ----------- | ------------------------------------------ |
-| onLeftSwipe           | function    | null                                       |
-| onLeftSwipeConfirm    | function    | null                                       |
-| leftSwipeComponent    | node        | null (_Text or leftSwipeComponent_)        |
-| onRightSwipe          | function    | null                                       |
-| onRightSwipeConfirm   | function    | null                                       |
-| rightSwipeComponent   | node        | null (_Text or rightSwipeComponent_)       |
-| height                | number      | 50                                         |
-| transitionDuration    | number (ms) | 250                                        |
-| swipeWidth            | number (px) | 75                                         |
-| swipeThreshold        | number (%)  | 75                                         |
-| showDeleteAction      | bool        | true                                       |
-| leftSwipeColor        | string      | 'rgba(252, 255, 148, 1.00)'                |
-| leftSwipeText         | string      | "Delete" (_deleteText or deleteComponent_) |
-| rightSwipeColor       | string      |'rgba(252, 254, 250, 1.00)'                 |
-| rightSwipeText        | string      | "Edit" (_Text or rightSwipeComponent_)     |
-| disabled              | bool        | false                                      |
-| disableLeftSwipe      | bool        | false                                      |
-| disableRightSwipe     | bool        | false                                      |
-| destructiveLeftSwipe  | bool        | false                                      |
-| destructiveRightSwipe | bool        | false                                      |
-| id                    | string      | ''                                         |
-| className             | string      | ''                                         |
-| onSwipeStateCompleted | function    | null                                       |
+| Prop                  | Type        | Default                                    | Description                                                             |
+| --------------------- | ----------- | ------------------------------------------ | ------------------------------------------------------------------------
+| onLeftSwipe           | function    | null                                       | Callback when the left swipe is completed                               |
+| onLeftSwipeConfirm    | function    | null                                       | Callback on left swipe confirmation                                     |
+| leftSwipeComponent    | node        | null (_Text or leftSwipeComponent_)        | Used to set the left swipe component (button, icon)                     |
+| onRightSwipe          | function    | null                                       | Callback when the right swipe is completed                              |
+| onRightSwipeConfirm   | function    | null                                       | Callback on right swipe confirmation                                    |
+| rightSwipeComponent   | node        | null (_Text or rightSwipeComponent_)       | Used to set the right swipe component (button, icon)                    |
+| height                | number      | 50                                         | Allows setting the height for the entire swipe component                |
+| transitionDuration    | number (ms) | 250                                        | Sets animation duration                                                 |
+| swipeWidth            | number (px) | 75                                         | Sets the visible width of the swipe component under the child (content) |
+| swipeThreshold        | number (%)  | 50                                         | Sets the threshold for swipe (as a percentage of the child's width)     |
+| showDeleteAction      | bool        | true                                       | If false, only full swipe is available                                  |
+| leftSwipeColor        | string      | 'rgba(252, 255, 148, 1.00)'                | Sets the left swipe background color                                    |
+| leftSwipeText         | string      | "Delete" (_deleteText or deleteComponent_) | Sets the left swipe text                                                |
+| rightSwipeColor       | string      |'rgba(252, 254, 250, 1.00)'                 | Sets the right swipe background color                                   |
+| rightSwipeText        | string      | "Edit" (_Text or rightSwipeComponent_)     | Sets the right swipe text                                               |
+| disabled              | bool        | false                                      | Disables both right and left swipes                                     | 
+| disableLeftSwipe      | bool        | false                                      | Disables the left swipe                                                 |
+| disableRightSwipe     | bool        | false                                      | Disables the right swipe                                                |
+| destructiveLeftSwipe  | bool        | false                                      | Applies destructive animation for the left swipe                        |
+| destructiveRightSwipe | bool        | false                                      | Applies destructive animation for the right swipe                       |
+| id                    | string      | ''                                         | Callback that notifies that the swipe is completed                      |   
+| className             | string      | ''                                         |                                                                         |
+| onSwipeStateCompleted | function    | null                                       |                                                                         |
 
 ## Component structure
 
