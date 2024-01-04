@@ -5,14 +5,7 @@
 
 A versatile React component designed to emulate the seamless iOS item-swiping experience in a list, offering extensive customization options for effortless integration and tailored user interactions.
 
-Swipe with and without confirmation:
 
-![GIF Demo](./demo_2.gif?raw=true)
-
-Callback that notifies that the swipe is completed (can be used to disable/enable user interaction with child content if needed)
-Do not have limitations for the width and height of a swipeable child container. 
-
-![GIF Demo](./demo_1.gif?raw=true)
 
 
 ## Installation
